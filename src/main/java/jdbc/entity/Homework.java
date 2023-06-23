@@ -49,7 +49,7 @@ public class Homework {
 
     @Override
     public String toString() {
-        return "jdbc.exceptions.Homework{" +
+        return "Homework{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

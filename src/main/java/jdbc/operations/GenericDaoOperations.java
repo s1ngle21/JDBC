@@ -2,7 +2,7 @@ package jdbc.operations;
 
 import java.util.List;
 
-public interface LessonDaoOperations<T, ID> {
+public interface GenericDaoOperations<T, ID> {
     boolean addLesson(T lesson);
     boolean deleteLesson(ID id);
     List<T> getAllLessons();

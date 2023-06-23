@@ -35,7 +35,7 @@ public class HomeworkDao {
                 homework.setName(resultSet.getString("name"));
                 homework.setDescription(resultSet.getString("description"));
             } else {
-                throw new JbdcOperationException("jdbc.exceptions.Homework with id = %d not found".formatted(id));
+                throw new JbdcOperationException("Homework with id = %d not found".formatted(id));
             }
             return homework;
         } catch (SQLException e) {

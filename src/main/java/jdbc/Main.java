@@ -2,21 +2,22 @@ package jdbc;
 
 import jdbc.entity.Homework;
 import jdbc.entity.Lesson;
-import jdbc.operations.impl.LessonDao;
-import jdbc.operations.LessonDaoOperations;
+import jdbc.operations.impl.GenericDao;
+import jdbc.operations.GenericDaoOperations;
 import jdbc.utils.DataBaseConnection;
 
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        LessonDaoOperations<Lesson, Long> lessonDaoOperations = new LessonDao(DataBaseConnection.initDataSource());
+        GenericDaoOperations<Lesson, Long> lessonDaoOperations = new GenericDao(DataBaseConnection.initDataSource());
 
         Homework homework = new Homework();
         homework.setId(2L);
 
+
         Lesson lesson = new Lesson();
-        lesson.setName("PY");
+        lesson.setName("Math2");
         lesson.setHomework(homework);
 
 
@@ -24,7 +25,7 @@ public class Main {
         System.out.println(isAdded);
 
 
-        boolean isDeleted = lessonDaoOperations.deleteLesson(2L);
+        boolean isDeleted = lessonDaoOperations.deleteLesson(5L);
         System.out.println(isDeleted);
 
         List<Lesson> lessons = lessonDaoOperations.getAllLessons();

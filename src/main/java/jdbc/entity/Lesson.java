@@ -1,5 +1,6 @@
 package jdbc.entity;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Lesson {
@@ -7,8 +8,17 @@ public class Lesson {
     private Long id;
     private String name;
     private Homework homework;
+    private LocalDate updatedAt;
 
     public Lesson() {
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Long getId() {
@@ -40,20 +50,21 @@ public class Lesson {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Lesson lesson = (Lesson) o;
-        return Objects.equals(id, lesson.id) && Objects.equals(name, lesson.name) && Objects.equals(homework, lesson.homework);
+        return Objects.equals(id, lesson.id) && Objects.equals(name, lesson.name) && Objects.equals(homework, lesson.homework) && Objects.equals(updatedAt, lesson.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, homework);
+        return Objects.hash(id, name, homework, updatedAt);
     }
 
     @Override
     public String toString() {
-        return "jdbc.exceptions.Lesson{" +
+        return "Lesson{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", homework='" + homework + '\'' +
+                ", homework=" + homework +
+                ", updatedAt=" + updatedAt +
                 '}';
     }
 }

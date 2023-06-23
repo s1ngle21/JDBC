@@ -3,17 +3,17 @@ import jdbc.entity.Homework;
 import jdbc.entity.Lesson;
 import jdbc.exceptions.JbdcOperationException;
 import jdbc.operations.HomeworkDao;
-import jdbc.operations.LessonDaoOperations;
+import jdbc.operations.GenericDaoOperations;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class LessonDao implements LessonDaoOperations<Lesson, Long> {
+public class GenericDao implements GenericDaoOperations<Lesson, Long> {
     private DataSource dataSource;
 
-    public LessonDao(final DataSource dataSource) {
+    public GenericDao(final DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
