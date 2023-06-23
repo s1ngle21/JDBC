@@ -18,8 +18,6 @@ public class DataBaseConnection {
             Properties dbProperties = new Properties();
             dbProperties.load(is);
             return dbProperties;
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

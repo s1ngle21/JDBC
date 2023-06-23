@@ -1,6 +1,7 @@
 package jdbc.entity;
 
 import java.time.LocalDate;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Lesson {
@@ -8,16 +9,16 @@ public class Lesson {
     private Long id;
     private String name;
     private Homework homework;
-    private LocalDate updatedAt;
+    private Date updatedAt;
 
     public Lesson() {
     }
 
-    public LocalDate getUpdatedAt() {
+    public Date getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
+    public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 

@@ -2,37 +2,39 @@ package jdbc;
 
 import jdbc.entity.Homework;
 import jdbc.entity.Lesson;
-import jdbc.operations.impl.GenericDao;
+import jdbc.operations.impl.LessonDao;
 import jdbc.operations.GenericDaoOperations;
 import jdbc.utils.DataBaseConnection;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Main {
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
-        GenericDaoOperations<Lesson, Long> lessonDaoOperations = new GenericDao(DataBaseConnection.initDataSource());
+        GenericDaoOperations<Lesson, Long> lessonDaoOperations = new LessonDao(DataBaseConnection.initDataSource());
 
         Homework homework = new Homework();
         homework.setId(2L);
 
 
         Lesson lesson = new Lesson();
-        lesson.setName("Math2");
+        lesson.setName("PY");
         lesson.setHomework(homework);
 
 
-        boolean isAdded = lessonDaoOperations.addLesson(lesson);
-        System.out.println(isAdded);
+        Lesson addedLesson = lessonDaoOperations.addLesson(lesson);
+        LOGGER.info("Added lesson: " + addedLesson);
 
 
-        boolean isDeleted = lessonDaoOperations.deleteLesson(5L);
-        System.out.println(isDeleted);
+        boolean isDeleted = lessonDaoOperations.deleteLesson(2L);
+        LOGGER.info(Boolean.toString(isDeleted));
 
         List<Lesson> lessons = lessonDaoOperations.getAllLessons();
-        System.out.println(lessons);
+        LOGGER.info("" + lessons);
 
-        Lesson lesson1 = lessonDaoOperations.getLesson(5L);
-        System.out.println(lesson1);
+        Lesson lesson1 = lessonDaoOperations.getLesson(1L);
+        LOGGER.info("" + lesson1);
 
     }
 }
